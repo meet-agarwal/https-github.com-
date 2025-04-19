@@ -1,0 +1,23 @@
+name: Daily Script at 9 PM
+
+on:
+  schedule:
+    - cron: '0 21 * * *'  # 9 PM UTC daily
+  workflow_dispatch:
+
+jobs:
+  run-daily-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run your script
+        run: python your_script.py
+
+      - name: Show output
+        run: cat output.txt
