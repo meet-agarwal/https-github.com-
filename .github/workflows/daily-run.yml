@@ -1,15 +1,15 @@
-name: Daily Script at 1:20 PM
+name: Daily Script at 1:21 PM
 
 on:
   schedule:
-    - cron: '20 13 * * *'  # 1:10 PM UTC daily
+    - cron: '21 13 * * *'   # 1:10 PM UTC daily
   workflow_dispatch:
 
 jobs:
   run-daily-script:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3  # Checkout the code from the repository
+      - uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -17,13 +17,13 @@ jobs:
           python-version: '3.x'
 
       - name: Run your script
-        run: python your_script.py  # Run the Python script
+        run: python your_script.py
 
       - name: Show output in logs
-        run: cat output.txt  # Display the output in the logs
+        run: cat output.txt
 
       - name: Upload output.txt as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Fixed version here
         with:
           name: output-file
-          path: output.txt  # Upload the output file as an artifact
+          path: output.txt
