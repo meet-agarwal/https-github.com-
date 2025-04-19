@@ -1,4 +1,4 @@
-name: Daily Script at 9 PM
+name: Daily Script at 1:10 PM
 
 on:
   schedule:
